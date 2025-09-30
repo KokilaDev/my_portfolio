@@ -1,0 +1,122 @@
+:root{
+    --main-color: #370824; /* Accent Color */
+    --bg-color: #1b1b1b;
+    --second-bg-color: #202020;
+    --text-color:white;
+    --second-text-color:#878787;
+}
+
+*{
+    font-family: "Urbanist", sans-serif,"IBM Plex Sans";
+    color: var(--text-color);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden ;
+    /* Gradient background */
+    background: radial-gradient(circle at top left , #370824, #1b1b1b 40%, transparent 100%) fixed,
+    radial-gradient(circle at bottom right, #370824, #1b1b1b 30%, transparent 100%) fixed;
+    background-color: #1b1b1b;
+}
+
+/* HEADER */
+.header{
+    background: linear-gradient(90deg, #1b1b1b, #370824);
+    height: 4.5rem;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    padding: 0 3rem;
+}
+
+header>.logo{
+    background: url("images/logo1.png") no-repeat center;
+    background-size: cover;
+    width: 3rem;
+    height: 3.3rem;
+}
+
+/* Desktop Nav */
+.navlist{
+    list-style: none;
+}
+.navlist li{
+    display: inline-block;
+    margin: 0 20px;
+}
+.navlist li a{
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.navlist li a:hover,
+.dropdown_menu li a:hover {
+    color: #ffffff;                 /* white text */
+    text-shadow: 0 0 10px #ffffff;  /* white glow */
+}
+
+/* Toggle Button */
+.toggle_btn{
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Dropdown Menu (Mobile) */
+.dropdown_menu{
+    display: none;
+    position: absolute;
+    right:2rem;
+    top: 5.5rem;
+    width: 250px;
+    height: 0;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    list-style: none;
+}
+
+.dropdown_menu.open{
+    height: 200px;
+}
+
+.dropdown_menu li{
+    padding: 1rem;
+    text-align: center;
+}
+.dropdown_menu li a{
+    text-decoration: none;
+    display: block;
+}
+.dropdown_menu li a:hover{
+    color: var(--main-color);
+}
+
+/* RESPONSIVE */
+@media all and (max-width: 768px ) {
+    .navlist{
+        display: none;
+    }
+    .toggle_btn{
+        display: block;
+    }
+    .dropdown_menu{
+        display: block;
+    }
+}
+
+@media all and (max-width: 425px ) {
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+}
