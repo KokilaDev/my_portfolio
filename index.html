@@ -15,7 +15,7 @@
     <title>Kokila Dewmini | Software Engineer</title>
 
     <!-- Favicon (add your logo here) -->
-    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
 
     <!-- CSS Reset -->
     <link rel="stylesheet" href="normalize.css">
@@ -65,11 +65,82 @@
     </ul>
 </header>
 
-<!-- * Main ========================== -->
-<main>
+<!-- * Hero section ========================== -->
+<main class="hero">
+    <div class="box-container">
+
+        <!-- Text Box -->
+        <div class="box" data-aos="fade-up" data-aos-duration="1500">
+            <div class="welcome-titles">
+                <h2>Hello, It’s me</h2>
+                <h1 class="heading">Kokila Dewmini</h1>
+                <h1>I'm a <span class="auto-type"></span></h1>
+            </div>
+
+            <div class="welcome-description">
+                <p class="description">
+                    I craft impactful software by blending creativity, clean code, and modern technologies.
+                    Explore my projects and see ideas come to life.
+                </p>
+            </div>
+
+            <div class="social-icons-cvbtn">
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                </div>
+                <a href="assets/files/kokilaCV.pdf" class="btn-slide" download="Kokila's CV">
+                    <span class="circle"><i class="fa-solid fa-download"></i></span>
+                    <span class="title">Download CV</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Image Box -->
+        <div class="box" data-aos="fade-up" data-aos-duration="1000">
+            <div class="hero-pic">
+                <img src="assets/images/hero.jpg" alt="my_photo" class="animate__animated animate__bounce">
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- * About me ========================== -->
+<main class="about">
     <section style="padding-top: 120px; text-align:center;">
-        <h1>Welcome to My Portfolio</h1>
-        <p>This is the main content area.</p>
+        <h1>About me</h1>
+    </section>
+</main>
+
+<!-- * Skills ========================== -->
+<main class="skills">
+    <section style="padding-top: 120px; text-align:center;">
+        <h1>Skills</h1>
+    </section>
+</main>
+
+<!-- * Our services ========================== -->
+<main class="services">
+    <section style="padding-top: 120px; text-align:center;">
+        <h1>Our services</h1>
+    </section>
+</main>
+
+<!-- * Projects ========================== -->
+<main class="projects">
+    <section style="padding-top: 120px; text-align:center;">
+        <h1>Projects</h1>
+    </section>
+</main>
+
+<!-- * Contact ========================== -->
+<main class="contact">
+    <section style="padding-top: 120px; text-align:center;">
+        <h1>Contact</h1>
     </section>
 </main>
 
@@ -95,7 +166,7 @@
 
             <div class="box">
                 <h3>Contact info</h3>
-                <p> <i class="fas fa-phone"></i>+91 XXX-XXX-XXXX</p>
+                <p> <i class="fas fa-phone"></i>+94 7X-XXX-XXXX</p>
                 <p> <i class="fas fa-envelope"></i>kokiladewmini527@gmail.com</p>
                 <p> <i class="fas fa-map-marked-alt"></i>Mathugama, Sri Lanka</p>
                 <div class="share">
@@ -123,6 +194,19 @@
     toggleBtn.addEventListener('click', () => {
         dropdownMenu.classList.toggle('open');
     });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+    var typed = new Typed('.auto-type',{
+        strings: ["Frontend Developer", "Backend Developer", "Software Engineer", "Java Developer"],
+        typeSpeed: 100,
+        backSpeed: 50,
+        loop: true
+    });
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
 </script>
 
 </body>

@@ -3,7 +3,7 @@
     --bg-color: #1b1b1b;
     --second-bg-color: #202020;
     --text-color:white;
-    --second-text-color:#878787;
+    --second-text-color:#D9D9D9;
 }
 
 *{
@@ -22,7 +22,8 @@ body {
     background-color: #1b1b1b;
 }
 
-/* ===== Header Section ===== */.header{
+/* ===== Header Section ===== */
+.header{
     background: linear-gradient(90deg, #1b1b1b, #370824);
     height: 4.5rem;
     width: 100vw;
@@ -36,7 +37,7 @@ body {
 }
 
 header>.logo{
-    background: url("images/logo1.png") no-repeat center;
+    background: url("assets/images/logo1.png") no-repeat center;
     background-size: cover;
     width: 3rem;
     height: 3.3rem;
@@ -52,7 +53,7 @@ header>.logo{
 }
 .navlist li a{
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .navlist li a:hover,
@@ -64,7 +65,7 @@ header>.logo{
 /* Toggle Button */
 .toggle_btn{
     display: none;
-    font-size: 2rem;
+    font-size: 1.2rem;
     cursor: pointer;
 }
 
@@ -85,7 +86,7 @@ header>.logo{
 }
 
 .dropdown_menu.open{
-    height: 200px;
+    height: 300px;
 }
 
 .dropdown_menu li{
@@ -97,8 +98,146 @@ header>.logo{
     display: block;
 }
 .dropdown_menu li a:hover{
+    color: #65063F;
+}
+
+/* ===== RESPONSIVE ===== */
+@media all and (max-width: 768px ) {
+    .navlist{
+        display: none;
+    }
+    .toggle_btn{
+        display: block;
+    }
+    .dropdown_menu{
+        display: block;
+    }
+}
+
+@media all and (max-width: 425px ) {
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+}
+
+/* ===== Hero section ===== */
+.hero {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+.box-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.box {
+    flex: 1;
+    padding: 20px;
+    min-width: 300px;
+}
+
+.welcome-titles h2 {
+    font-size: 24px;
+    color: var(--second-text-color);
+}
+
+.welcome-titles .heading {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.welcome-titles h1 span.auto-type {
+    color: #65063F;
+}
+
+.description {
+    font-style: italic;
+    font-size: 18px;
+    color: var(--second-text-color);
+    margin-top: 20px;
+}
+
+.social-icons a {
+    margin-right: 15px;
+    font-size: 20px;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
     color: var(--main-color);
 }
+
+.btn-slide {
+    display: inline-block;
+    width: 180px;
+    height: 50px;
+    line-height: 50px;
+    background: #370824;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    transition: 0.3s ease;
+    position: relative;
+}
+
+.btn-slide .circle {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: #65063F;
+    border-radius: 50%;
+    line-height: 30px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.btn-slide:hover {
+    background: #65063F;
+    color: #370824;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.hero-pic img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 100%;
+}
+
+@media all and (max-width: 900px) {
+    .box-container {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .welcome-titles .heading {
+        font-size: 36px;
+    }
+}
+
+/* ===== About me ===== */
+
+/* ===== Skills ===== */
+
+/* ===== Our services ===== */
+
+/* ===== Projects ===== */
+
+/* ===== Contact ===== */
 
 /* ===== Footer Section ===== */
 .footer {
@@ -210,24 +349,4 @@ header>.logo{
 @keyframes pound {
     from { transform: scale(1); }
     to { transform: scale(1.3); }
-}
-
-/* ===== RESPONSIVE ===== */
-@media all and (max-width: 768px ) {
-    .navlist{
-        display: none;
-    }
-    .toggle_btn{
-        display: block;
-    }
-    .dropdown_menu{
-        display: block;
-    }
-}
-
-@media all and (max-width: 425px ) {
-    .dropdown_menu{
-        left: 2rem;
-        width: unset;
-    }
 }
