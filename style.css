@@ -477,6 +477,16 @@ nav {
 }
 
 /* ===== Skills ===== */
+.skills {
+    width: 100%;
+    min-height: 90vh;
+    padding: 2rem 0;
+    color: #ffffff;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .skills h2 {
     text-align: center;
     font-size: 3rem;
@@ -486,6 +496,101 @@ nav {
 
 .skills h2 i {
     color: #942A6A;
+}
+
+.skills .container {
+    max-width: 1200px;
+    background: rgba(80, 8, 51, 0.4);
+    border-radius: 1rem;
+    padding: 2rem;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.skills .row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.8rem;
+}
+
+.skills .bar {
+    width: 250px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.9);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.skills .bar.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skills .bar:hover {
+    box-shadow: 0 8px 10px rgba(0,0,0,0.5);
+}
+
+.skills .bar .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.skills .bar .info i {
+    font-size: 3rem;
+}
+
+.skills .bar .info span {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.skills .progress {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    height: 20px;
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+.skills .progress-fill {
+    height: 100%;
+    width: 0;
+    border-radius: 10px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 5px;
+    color: #ffffff;
+    transition: width 1.5s ease;
+}
+
+@media screen and (max-width: 900px) {
+    .skills .row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .skills .row {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ===== Education ===== */
