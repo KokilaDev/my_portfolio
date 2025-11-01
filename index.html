@@ -156,6 +156,10 @@
 
     <h2><i class="fas fa-brain"></i> Skills</h2>
 
+    <div class="container">
+        <div class="row" id="skillsContainer"></div>
+    </div>
+
 </main>
 
 <!-- * Education ========================== -->
@@ -279,6 +283,56 @@
 
 <!-- * About * -->
 <script src="https://cdn.tailwindcss.com"></script>
+
+<!-- * Skills * -->
+<script>
+
+    const skillsData = [
+        { name: "Java", icon: "fab fa-java", level: 85, colors: ["#f89820", "#f7df1e"] },
+        { name: "MySQL", icon: "fas fa-database", level: 80, colors: ["#4479a1", "#68a0cf"] },
+        { name: "PostgreSQL", icon: "fas fa-database", level: 75, colors: ["#336791", "#5a91b1"] },
+        { name: "HTML", icon: "fab fa-html5", level: 95, colors: ["#e34f26", "#f16529"] },
+        { name: "CSS", icon: "fab fa-css3-alt", level: 90, colors: ["#264de4", "#6a9dfc"] },
+        { name: "JavaScript", icon: "fab fa-js", level: 85, colors: ["#f7df1e", "#ffd633"] },
+        { name: "GitHub", icon: "fab fa-github", level: 80, colors: ["#171515", "#333333"] },
+        { name: "Figma", icon: "fab fa-figma", level: 75, colors: ["#F24E1E", "#FF7262"] }
+    ];
+
+    const container = document.getElementById("skillsContainer");
+
+    skillsData.forEach(skill => {
+        const bar = document.createElement("div");
+        bar.classList.add("bar");
+        bar.innerHTML = `
+        <div class="info">
+            <i class="${skill.icon}"></i>
+            <span>${skill.name}</span>
+            <div class="progress">
+                <div class="progress-fill">${skill.level}%</div>
+            </div>
+        </div>
+    `;
+        container.appendChild(bar);
+    });
+
+    function animateBars() {
+        const triggerPoint = window.innerHeight;
+        const bars = document.querySelectorAll(".bar");
+        bars.forEach((bar, index) => {
+            const position = bar.getBoundingClientRect().top;
+            const fill = bar.querySelector(".progress-fill");
+            if (position < triggerPoint) {
+                bar.classList.add("visible");
+                fill.style.width = skillsData[index].level + "%";
+                fill.style.background = `linear-gradient(90deg, ${skillsData[index].colors.join(", ")})`;
+            }
+        });
+    }
+
+    window.addEventListener("load", animateBars);
+    window.addEventListener("scroll", animateBars);
+
+</script>
 
 </body>
 </html>
