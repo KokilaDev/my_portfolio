@@ -12,7 +12,7 @@
     <meta name="author" content="Kokila Dewmini">
 
     <!-- Browser tab title -->
-    <title>Kokila Dewmini | Software Engineer</title>
+    <title>Kokila Dewmini</title>
 
     <!-- Favicon (add your logo here) -->
     <link rel="icon" type="image/png" href="assets/images/logo.png">
@@ -41,13 +41,25 @@
     <div class="logo"></div>
 
     <nav>
-        <ul class="navlist">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About me</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#services">Our services</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+        <ul class="nav-list">
+            <li class="nav-item"><a href="#home"><i class="fas fa-home"></i><span> Home</span></a></li>
+            <li class="nav-item"><a href="#about"><i class="fas fa-user"></i><span> About Me</span></a></li>
+            <li class="nav-item"><a href="#skills"><i class="fas fa-brain"></i><span> Skills</span></a></li>
+            <li class="nav-item"><a href="#projects"><i class="fas fa-folder-open"></i><span> Projects</span></a></li>
+            <li class="nav-item"><a href="#education"><i class="fas fa-graduation-cap"></i><span> Education</span></a></li>
+            <li class="nav-item"><a href="#contact"><i class="fas fa-address-book"></i><span> Contact</span></a></li>
+
+            <!-- More Dropdown -->
+            <li class="nav-item-dropdown">
+                <a href="javascript:void(0)"><i class="fas fa-ellipsis-h"></i><span> More</span> <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu-more">
+                    <li><a href="#achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
+                    <li><a href="#services"><i class="fas fa-cogs"></i> Services</a></li>
+                    <li><a href="#gallery"><i class="fas fa-image"></i> Gallery</a></li>
+                    <!--                    <li><a href="#testimonials"><i class="fas fa-comment-dots"></i> Testimonials</a></li>-->
+                    <li><a href="#assignments"><i class="far fa-file-alt"></i> Assignments</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
 
@@ -56,17 +68,22 @@
     </div>
 
     <ul class="dropdown_menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About me</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#services">Our services</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#about"><i class="fas fa-user"></i> About Me</a></li>
+        <li><a href="#skills"><i class="fas fa-brain"></i> Skills</a></li>
+        <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+        <li><a href="#achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
+        <li><a href="#projects"><i class="fas fa-folder-open"></i> Projects</a></li>
+        <li><a href="#assignments"><i class="far fa-file-alt"></i> Assignments</a></li>
+        <li><a href="#services"><i class="fas fa-cogs"></i> Services</a></li>
+        <li><a href="#gallery"><i class="fas fa-image"></i> Gallery</a></li>
+        <!--        <li><a href="#testimonials"><i class="fas fa-comment-dots"></i> Testimonials</a></li>-->
+        <li><a href="#contact"><i class="fa-solid fa-address-book"></i> Contact</a></li>
     </ul>
 </header>
 
 <!-- * Hero section ========================== -->
-<main class="hero">
+<main id="home" class="hero">
     <div class="box-container">
 
         <!-- Text Box -->
@@ -74,7 +91,7 @@
             <div class="welcome-titles">
                 <h2>Hello, It’s me</h2>
                 <h1 class="heading">Kokila Dewmini</h1>
-                <h1>I'm a <span class="auto-type"></span></h1>
+                <h1 class="heading-auto-type">I'm a <span class="auto-type"></span></h1>
             </div>
 
             <div class="welcome-description">
@@ -86,23 +103,23 @@
 
             <div class="social-icons-cvbtn">
                 <div class="social-icons">
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-github"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="https://www.facebook.com/kokila.dewmini.2025"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://github.com/KokilaDev"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.instagram.com/_dew_015_/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/kokila-dewmini-799871318/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://t.me/Dew015"><i class="fa-brands fa-telegram"></i></a>
                 </div>
-                <a href="assets/files/kokilaCV.pdf" class="btn-slide" download="Kokila's CV">
+                <a href="#" class="btn-slide" download="Kokila's CV">
                     <span class="circle"><i class="fa-solid fa-download"></i></span>
                     <span class="title">Download CV</span>
                 </a>
             </div>
         </div>
 
-        <!-- Image Box -->
+        <!-- Image Box-->
         <div class="box" data-aos="fade-up" data-aos-duration="1000">
             <div class="hero-pic">
-                <img src="assets/images/hero.jpg" alt="my_photo" class="animate__animated animate__bounce">
+                <img src="assets/images/hero.jpg">
             </div>
         </div>
 
@@ -110,38 +127,68 @@
 </main>
 
 <!-- * About me ========================== -->
-<main class="about">
-    <section style="padding-top: 120px; text-align:center;">
-        <h1>About me</h1>
-    </section>
+<main id="about" class="about">
+
+    <h2><i class="fa-solid fa-user"></i> About me</h2>
+
 </main>
 
 <!-- * Skills ========================== -->
-<main class="skills">
-    <section style="padding-top: 120px; text-align:center;">
-        <h1>Skills</h1>
-    </section>
+<main id="skills" class="skills">
+
+    <h2><i class="fas fa-brain"></i> Skills</h2>
+
 </main>
 
-<!-- * Our services ========================== -->
-<main class="services">
-    <section style="padding-top: 120px; text-align:center;">
-        <h1>Our services</h1>
-    </section>
+<!-- * Education ========================== -->
+<main id="education" class="education">
+
+    <h2><i class="fas fa-graduation-cap"></i>Education</h2>
+
+</main>
+
+<!-- * Achievements ========================== -->
+<main id="achievements" class="achievements">
+
+    <h2><i class="fas fa-trophy"></i>Achievements</h2>
+
 </main>
 
 <!-- * Projects ========================== -->
-<main class="projects">
-    <section style="padding-top: 120px; text-align:center;">
-        <h1>Projects</h1>
-    </section>
+<main id="projects" class="projects">
+
+    <h2><i class="fas fa-folder-open"></i> Projects</h2>
+
+</main>
+
+<!-- * Assignments ========================== -->
+<main id="assignments" class="assignments">
+
+    <h2><i class="far fa-file-alt"></i>Assignments</h2>
+
+</main>
+
+<!-- * Our services ========================== -->
+<main id="services" class="services">
+
+    <h2><i class="fas fa-cogs"></i> Our Services</h2>
+
+</main>
+
+<!-- * Gallery ========================== -->
+<main id="gallery" class="gallery">
+
+    <h2><i class="fas fa-image"></i>Gallery</h2>
+
 </main>
 
 <!-- * Contact ========================== -->
-<main class="contact">
-    <section style="padding-top: 120px; text-align:center;">
-        <h1>Contact</h1>
-    </section>
+<main id="contact" class="contact">
+
+    <h2>
+        <i class="fa-solid fa-address-book"></i> Get in Touch
+    </h2>
+
 </main>
 
 <!-- * Footer ========================== -->

@@ -22,8 +22,13 @@ body {
     background-color: #1b1b1b;
 }
 
+main {
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+
 /* ===== Header Section ===== */
-.header{
+.header {
     background: linear-gradient(90deg, #1b1b1b, #370824);
     height: 4.5rem;
     width: 100vw;
@@ -36,95 +41,185 @@ body {
     padding: 0 3rem;
 }
 
-header>.logo{
+.header .logo {
     background: url("assets/images/logo1.png") no-repeat center;
     background-size: cover;
     width: 3rem;
     height: 3.3rem;
 }
 
-/* Desktop Nav */
-.navlist{
+/* Nav styling */
+nav {
+    position: fixed;
+    top: 5px;
+    right: 0;
+    z-index: 100;
+}
+
+.nav-list {
     list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 2rem;
 }
-.navlist li{
-    display: inline-block;
-    margin: 0 20px;
+
+.nav-item {
+    position: relative;
+    margin: 0 1rem;
 }
-.navlist li a{
+
+.nav-item a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     text-decoration: none;
-    font-size: 1rem;
+    color: var(--text-color);
+    padding: 1rem 0.5rem;
+    transition: color 0.3s ease, transform 0.2s ease;
 }
 
-.navlist li a:hover,
-.dropdown_menu li a:hover {
-    color: #ffffff;                 /* white text */
-    text-shadow: 0 0 10px #ffffff;  /* white glow */
+.nav-item a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px #ffffff;
+    transform: scale(1.05);
 }
 
-/* Toggle Button */
-.toggle_btn{
-    display: none;
-    font-size: 1.2rem;
-    cursor: pointer;
+/* Dropdown menu */
+.nav-item-dropdown {
+    position: relative;
 }
 
-/* Dropdown Menu (Mobile) */
-.dropdown_menu{
-    display: none;
+.dropdown-menu-more {
     position: absolute;
-    right:2rem;
-    top: 5.5rem;
-    width: 250px;
-    height: 0;
+    top: 100%;
+    right: 0;
     background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(5px);
-    border-radius: 10px;
-    overflow: hidden;
-    transition: height 0.3s ease;
     list-style: none;
+    padding: 0.5rem 0;
+    display: none;
+    min-width: 180px;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
 
-.dropdown_menu.open{
-    height: 300px;
-}
-
-.dropdown_menu li{
-    padding: 1rem;
-    text-align: center;
-}
-.dropdown_menu li a{
+.dropdown-menu-more li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--text-color);
     text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-menu-more li a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px #ffffff;
+    border-radius: 5px;
+    transform: scale(1.05);
+}
+
+/* Show dropdown on hover */
+.nav-item-dropdown:hover .dropdown-menu-more {
     display: block;
 }
-.dropdown_menu li a:hover{
-    color: #65063F;
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .nav-list {
+        flex-direction: column;
+        background: var(--main-color);
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        padding-top: 5rem;
+        transition: right 0.3s ease;
+    }
+
+    .nav-list.active {
+        right: 0;
+    }
+
+    .nav-item {
+        margin: 1rem 0;
+    }
+
+    .dropdown-menu-more {
+        position: relative;
+        top: 0;
+        left: 0;
+        box-shadow: none;
+    }
 }
 
-/* ===== RESPONSIVE ===== */
-@media all and (max-width: 768px ) {
-    .navlist{
+/* ---------- Toggle Button ---------- */
+.toggle_btn {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* ---------- Dropdown Menu (Mobile) ---------- */
+.dropdown_menu {
+    position: absolute;
+    top: 4.8rem;
+    right: 2rem;
+    width: 200px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    max-height: 0;          /* hide initially */
+    overflow: hidden;       /* hide extra content */
+    transition: max-height 0.5s ease;
+    list-style: none;
+    z-index: 99;
+}
+
+/* Open state */
+.dropdown_menu.open {
+    max-height: 300px;       /* scrollable max height */
+    overflow-y: auto;        /* enable vertical scroll if content overflows */
+}
+
+.dropdown_menu li {
+    text-align: center;
+}
+
+.dropdown_menu li a {
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.dropdown_menu li a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #ffffff;
+    /*background: rgba(255, 255, 255, 0.15);*/
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .nav-list {
         display: none;
     }
-    .toggle_btn{
-        display: block;
-    }
-    .dropdown_menu{
-        display: block;
-    }
-}
 
-@media all and (max-width: 425px ) {
-    .dropdown_menu{
-        left: 2rem;
-        width: unset;
+    .toggle_btn {
+        display: block;
+    }
+
+    .dropdown_menu {
+        display: block;
     }
 }
 
 /* ===== Hero section ===== */
 .hero {
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 2.5rem);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,6 +233,11 @@ header>.logo{
     max-width: 1200px;
     width: 100%;
     flex-wrap: wrap;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
 }
 
 .box {
@@ -157,8 +257,14 @@ header>.logo{
     color: var(--text-color);
 }
 
+.welcome-titles .heading-auto-type {
+    font-size: 26px;
+    color: var(--second-text-color);
+    font-weight: bold;
+}
+
 .welcome-titles h1 span.auto-type {
-    color: #65063F;
+    color: #942A6A;
 }
 
 .description {
@@ -166,56 +272,84 @@ header>.logo{
     font-size: 18px;
     color: var(--second-text-color);
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .social-icons a {
     margin-right: 15px;
-    font-size: 20px;
+    margin-bottom: 20px;
+    font-size: 25px;
     color: var(--text-color);
     transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
     color: var(--main-color);
+    text-shadow: 0 0 10px #ffffff;
 }
 
 .btn-slide {
     display: inline-block;
-    width: 180px;
-    height: 50px;
-    line-height: 50px;
-    background: #370824;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 50px;
-    font-family: "Poppins", sans-serif;
+    color: #ffffff;
+    background: linear-gradient(90deg, #370824, #5E063B);
+    border-radius: 30px;
+    padding: 10px 28px;
+    margin-top: 10px;
     font-weight: 600;
-    transition: 0.3s ease;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
     position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 10px rgba(148, 42, 106, 0.4);
 }
 
-.btn-slide .circle {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    background: #65063F;
-    border-radius: 50%;
-    line-height: 30px;
-    text-align: center;
-    margin-right: 10px;
-}
-
+/* Glow + gradient shift on hover */
 .btn-slide:hover {
-    background: #65063F;
-    color: #370824;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    background: linear-gradient(90deg, #942A6A, #5E063B, #370824);
+    background-size: 200%;
+    animation: gradientShift 2s ease infinite;
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(148, 42, 106, 0.8),
+    0 0 40px rgba(148, 42, 106, 0.4);
+}
+
+.btn-slide:hover::after {
+    opacity: 1;
+    right: 15px;
+}
+
+/* Gradient animation for hover */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 .hero-pic img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 100%;
+    margin-top: 50px;
+    height: 400px;
+    width: 400px;
+    animation: 4s move infinite ease-in-out;
+    opacity: 80%;
+}
+
+@keyframes move {
+    0% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    30% { clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+    60% { clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);}
+    80% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
 }
 
 @media all and (max-width: 900px) {
@@ -230,14 +364,112 @@ header>.logo{
 }
 
 /* ===== About me ===== */
+.about h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #942A6A;
+}
+
+.about h2 i {
+    color: #942A6A;
+}
 
 /* ===== Skills ===== */
+.skills h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #942A6A;
+}
 
-/* ===== Our services ===== */
+.skills h2 i {
+    color: #942A6A;
+}
+
+/* ===== Education ===== */
+.education h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #942A6A;
+}
+
+.education h2 i {
+    color: #942A6A;
+}
+
+/* ===== Achievements ===== */
+.achievements h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #942A6A;
+}
+
+.achievements h2 i {
+    color: #942A6A;
+}
 
 /* ===== Projects ===== */
+.projects h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #942A6A;
+}
+
+.projects h2 i {
+    color: #942A6A;
+}
+
+/* ===== Assignments ===== */
+.assignments h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #942A6A;
+}
+
+.assignments h2 i {
+    color: #942A6A;
+}
+
+/* ===== Our services ===== */
+.services h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #942A6A;
+}
+
+.services h2 i {
+    color: #942A6A;
+}
+
+/* ===== Gallery ===== */
+.gallery h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #942A6A;
+}
+
+.gallery h2 i {
+    color: #942A6A;
+}
 
 /* ===== Contact ===== */
+.contact h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #942A6A;
+}
+
+.contact h2 i {
+    color: #942A6A;
+}
 
 /* ===== Footer Section ===== */
 .footer {
