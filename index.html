@@ -131,6 +131,24 @@
 
     <h2><i class="fa-solid fa-user"></i> About me</h2>
 
+    <div class="card-container">
+        <div class="card">
+            <img class="h-auto max-w-lg transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" src="assets/images/heropic.jpg" alt="My Photo">
+        </div>
+
+        <div class="card">
+            <h3>I'm Kokila Dewmini</h3>
+            <p>I’m a Software Engineering undergraduate from IJSE with a passion for building efficient and scalable applications.</p>
+            <p>Skilled in Java, JavaFX, and layered architecture, I love solving problems and turning ideas into impactful software solutions.</p>
+            <div>
+                <span>Email : </span><a href="mailto:kokiladewmini527@gmail.com">kokiladewmini527@gmail.com</a>
+            </div>
+            <div>
+                <a href="#"><span id="resume">Resume</span></a>
+            </div>
+        </div>
+    </div>
+
 </main>
 
 <!-- * Skills ========================== -->
@@ -233,6 +251,7 @@
     </section>
 </footer>
 
+<!-- * Header * -->
 <script>
     // toggle dropdown menu on mobile
     const toggleBtn = document.querySelector('.toggle_btn');
@@ -242,10 +261,12 @@
         dropdownMenu.classList.toggle('open');
     });
 </script>
+
+<!-- * Hero Section * -->
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 <script>
     var typed = new Typed('.auto-type',{
-        strings: ["Frontend Developer", "Backend Developer", "Software Engineer", "Java Developer"],
+        strings: ["Frontend Developer", "Backend Developer", "Software Engineer"],
         typeSpeed: 100,
         backSpeed: 50,
         loop: true
@@ -255,6 +276,9 @@
 <script>
     AOS.init();
 </script>
+
+<!-- * About * -->
+<script src="https://cdn.tailwindcss.com"></script>
 
 </body>
 </html>
