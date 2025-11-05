@@ -323,9 +323,47 @@
 <!-- * Contact ========================== -->
 <main id="contact" class="contact">
 
-    <h2>
-        <i class="fa-solid fa-address-book"></i> Get in Touch
-    </h2>
+    <section>
+
+        <h2><i class="fa-solid fa-address-book"></i> Get in Touch</h2>
+
+        <form id="contact-form" novalidate>
+            <div class="card-container grid grid-cols-2 gap-6 mb-6">
+                <div class="f-group">
+                    <input type="text" id="f-name" placeholder=" " class="f-input" required minlength="2">
+                    <label for="f-name" class="f-label">First Name *</label>
+                </div>
+                <div class="f-group">
+                    <input type="text" id="l-name" placeholder=" " class="f-input" required minlength="2">
+                    <label for="l-name" class="f-label">Last Name *</label>
+                </div>
+                <div class="f-group">
+                    <input type="text" id="mobile" placeholder=" " class="f-input" required pattern="\d{10,}">
+                    <label for="mobile" class="f-label">Contact Number *</label>
+                </div>
+                <div class="f-group">
+                    <input type="email" id="email" placeholder=" " class="f-input" required>
+                    <label for="email" class="f-label">Email Address *</label>
+                </div>
+            </div>
+
+            <div class="f-group mb-6">
+                <textarea id="message" placeholder=" " class="f-input" required minlength="10"></textarea>
+                <label for="message" class="f-label">Message *</label>
+            </div>
+
+            <div class="submit">
+                <button type="submit" class="submit-btn">
+                    <i class="fa-solid fa-paper-plane"></i> Send Message
+                </button>
+            </div>
+        </form>
+
+    </section>
+
+    <div id="toast">
+        <div>Message sent successfully</div>
+    </div>
 
 </main>
 
@@ -447,6 +485,79 @@
 
     window.addEventListener("load", animateBars);
     window.addEventListener("scroll", animateBars);
+
+</script>
+
+<!-- * Contact * -->
+<script>
+
+    (() => {
+        const qs  = (sel, root = document) => root.querySelector(sel);
+        const qsa = (sel, root = document) => [...root.querySelectorAll(sel)];
+
+        const form = qs('#contact-form');
+        const toast = qs('#toast');
+        const inputs = qsa('.f-input');
+
+        // Toggle has-value class on input blur
+        inputs.forEach(input => {
+            input.addEventListener('blur', () => {
+                if(input.value.trim()) input.classList.add('has-value');
+                else input.classList.remove('has-value');
+            });
+        });
+
+        function showError(input,msg){
+            if(!input) return;
+            const p = qs(`[data-error-for="${input.id}"]`);
+            if(p){ p.style.display='block'; p.textContent=msg; }
+            input.classList.add('ring-2','ring-red-500/50');
+        }
+
+        function clearError(input){
+            if(!input) return;
+            const p = qs(`[data-error-for="${input.id}"]`);
+            if(p) p.style.display='none';
+            input.classList.remove('ring-2','ring-red-500/50');
+        }
+
+        function validate(){
+            let ok = true;
+            const fname = qs('#f-name');
+            if(!fname || fname.value.trim().length<2){ ok=false; showError(fname,'Enter first name'); } else clearError(fname);
+
+            const lname = qs('#l-name');
+            if(!lname || lname.value.trim().length<2){ ok=false; showError(lname,'Enter last name'); } else clearError(lname);
+
+            const mobile = qs('#mobile');
+            const mobileOk = mobile? /^\d{10,}$/.test(mobile.value): false;
+            if(!mobileOk){ ok=false; showError(mobile,'Enter valid mobile'); } else clearError(mobile);
+
+            const email = qs('#email');
+            const emailOk = email? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value): false;
+            if(!emailOk){ ok=false; showError(email,'Enter valid email'); } else clearError(email);
+
+            const message = qs('#message');
+            if(!message || message.value.trim().length<10){ ok=false; showError(message,'Write at least 10 chars'); } else clearError(message);
+
+            return ok;
+        }
+
+        if(form){
+            form.addEventListener('submit', async e=>{
+                e.preventDefault();
+                if(!validate()) return;
+                await new Promise(r=>setTimeout(r,700));
+                if(toast){
+                    toast.classList.add('show');
+                    setTimeout(()=>{ toast.classList.remove('show'); },2200);
+                }
+                form.reset();
+                inputs.forEach(i=>i.classList.remove('has-value'));
+                inputs.forEach(i=>i.dispatchEvent(new Event('blur')));
+            });
+        }
+    })();
 
 </script>
 

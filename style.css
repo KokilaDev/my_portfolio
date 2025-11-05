@@ -1005,6 +1005,27 @@ nav {
 }
 
 /* ===== Contact ===== */
+.contact {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+.contact section {
+    width: 90%;
+    max-width: 1000px;
+    background: rgba(0,0,0,0.35);
+    padding: 40px 30px;
+    border-radius: 20px;
+    backdrop-blur: blur(10px);
+    box-shadow: 0 0 40px rgba(148,42,106,.25), inset 0 0 20px rgba(148,42,106,.15);
+    position: relative;
+    margin-bottom: 10vh;
+}
+
 .contact h2 {
     text-align: center;
     font-size: 3rem;
@@ -1014,6 +1035,102 @@ nav {
 
 .contact h2 i {
     color: #942A6A;
+}
+
+.contact .f-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.contact .f-input {
+    width: 100%;
+    padding: 16px 12px 8px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,.2);
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.contact .f-label {
+    position: absolute;
+    left: 12px;
+    top: 16px;
+    pointer-events: none;
+    color: rgba(255,255,255,.6);
+    transition: all 0.2s ease;
+    background: transparent;
+    padding: 0 0.3rem;
+}
+
+.contact .f-input:focus + .f-label,
+.contact .f-input:not(:placeholder-shown) + .f-label,
+.contact .f-input.has-value + .f-label {
+    transform: translateY(-1rem) scale(0.9);
+    color: transparent;
+    background: transparent;
+    border-radius: 0.3rem;
+}
+
+.contact .f-input:focus {
+    outline: none;
+    box-shadow: 0 0 10px #c04da0;
+}
+
+.contact textarea.f-input {
+    resize: none;
+    height: 120px;
+}
+
+.contact .submit {
+    text-align: center;
+}
+
+.contact .submit-btn {
+    padding: 14px;
+    border-radius: 25px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: black;
+    background-color: #c04da0;
+    cursor: pointer;
+    box-shadow: 0 0 30px #c04da0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact .submit-btn i {
+    color: black;
+}
+
+.contact .submit-btn:hover {
+    box-shadow: 0 0 60px #c04da0;
+    transform: scale(1.05);
+}
+
+.contact #toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 50;
+}
+
+.contact #toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact #toast div {
+    background: #dddddd;
+    color: black;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 30px #D9D9D9;
 }
 
 /* ===== Footer Section ===== */
